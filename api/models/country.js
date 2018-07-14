@@ -3,8 +3,8 @@ mongoose.connect('mongodb://localhost/over9000f');
 
 const countrySchema = mongoose.Schema({
     cc: String,
-    land: Number,
-    water: Number
+    land: String,
+    water: String
 });
 
 module.exports = mongoose.model('Country', countrySchema);
