@@ -41,8 +41,13 @@ router.post('/',(req, res, next) =>{
         createdCountry: country 
     });
 });
-router.get('/:countryCode', (req, res, next) =>{
-    var CC;
+router.get('/ccAll', (req, res, next) =>{
+    CCName.find().lean().exec(function (err, users) {
+        res.status(200).json(users);
+    });
+});
+router.get('/cc/:countryCode', (req, res, next) =>{
+    var CCdd;
     var name;
     var land;
     var water;
@@ -55,15 +60,15 @@ router.get('/:countryCode', (req, res, next) =>{
     })
       .exec()
       .then(doc =>{
-         CCName.findOne({'cc': cc}, 'cc name', function(err, ccName){
+         CCName.findOne({'cc': cc.toUpperCase()}, 'cc name', function(err, ccName){
             name = ccName.name;
-            CC = ccName.cc;
+            CCdd = ccName.cc;
          })
             .exec()
             .then(doc =>{
 
                 var result = {};
-                result['cc'] = CC
+                result['cc'] = CCdd
                 result['name'] = name;
                 result['land'] = land;
                 result['water'] = water;

@@ -16,9 +16,11 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "chart.js": "^2.7.2",
     "cheerio": "^1.0.0-rc.2",
     "express": "^4.16.3",
     "fs": "0.0.1-security",
+    "jquery": "^3.3.1",
     "mongoose": "^5.2.3",
     "morgan": "^1.9.0",
     "request": "^2.87.0",
